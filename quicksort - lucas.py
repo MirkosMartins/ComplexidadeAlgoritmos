@@ -1,4 +1,4 @@
-import time
+#1
 palavras = ["um",
 "milenário",
 "recusar",
@@ -200,8 +200,8 @@ palavras = ["um",
 "sonegar",
 "sectário",]
 
-def partition(array, low, high):
-    #9n + 4
+def partition(array, low, high): #9n + 4
+
     pivot = array[high]
  
     i = low - 1
@@ -212,36 +212,16 @@ def partition(array, low, high):
     (array[i + 1], array[high]) = (array[high], array[i + 1])
     return i + 1 
  
-def quickSort(array, low, high):
+def quickSort(array, low, high): #6logN + 9n + 5
     if low < high:
         pi = partition(array, low, high) #9n + 4
-        quickSort(array, low, pi - 1) #
-        quickSort(array, pi + 1, high)
+        quickSort(array, low, pi - 1) #3logN
+        quickSort(array, pi + 1, high) #3logN
 
-def inverter(array):
-    x = []
-    for i in range(len(array)-1,-1,-1):
-        x.append(array[i])
-    return x
+size = len(palavras) #2
+quickSort(palavras, 0, size - 1) #3log200
+print(palavras) #1
 
-size = len(palavras)
-tempos = []
-#random
-ini = time.time_ns()
-quickSort(palavras, 0, size - 1)
-fim = time.time_ns()
-tempos.append(fim-ini)
+# programa = 3log200 + 4
+# O(NlogN)
 
-#ordem inversa
-palavras = inverter(palavras)
-ini = time.time_ns()
-quickSort(palavras, 0, size - 1)
-fim = time.time_ns()
-tempos.append(fim-ini)
-
-#ja ordenado
-ini = time.time_ns()
-quickSort(palavras, 0, size - 1)
-fim = time.time_ns()
-tempos.append(fim-ini)
-print(tempos)
