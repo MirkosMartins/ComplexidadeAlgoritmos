@@ -1,0 +1,34 @@
+QUICKSORT
+
+
+
+=======================================================
+
+def quicksort(lista):
+    if len(lista) <= 1:                                                             atrib + comp.           1
+        return lista                                                                atrib.
+    else:
+        pivo = lista[0]                                                             atrib.                  1
+        menores = [x for x in lista[1:] if x < pivo]                                atrib.  + comp.         (1*logN)+1+3N
+        maiores = [x for x in lista[1:] if x >= pivo]                               atrib.  + comp          (1*logN)+1+3N
+        return quicksort(menores) + [pivo] + quicksort(maiores)                     atrib                   1
+                                                                                                            ===============
+                                                                                                            5+2logN+6n
+
+
+palavras = ["uva", "banana", "morango", "campeonato", "campo", "canais",
+"canal", "candidato", "cantor", "cantora", "cantores", "capa", "capacidade"]        atrib.                  1
+palavras_ordenadas = quicksort(palavras)                                            atrib                   1
+print(palavras_ordenadas)                                                           atrib                   1
+                                                                                                            =============
+                                                                                                            5+2logN+6n+3 = 8+2logN+6N
+
+
+
+
+
+
+
+
+
+
